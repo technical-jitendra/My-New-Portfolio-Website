@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My personal portfolio websites</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="index.js">
+</head>
+<body>
+    <div class="container">
+    <div class="sidebar sidebarGO">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="myintro.html" >My Intro</a></li>
+                <li><a href="services.html" >services</a></li>
+                <li><a href="#" >contact</a></li>
+                <li><a href="project.html" >Project</a></li>
+                <li><a href="skills.html" >Skills</a></li>
+                <li><a href="certification.html">Certification</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="main">
+        <div class="hamburger">
+            <img class="ham" src="/images/hamburger.png" alt="" width="23px">
+            <img class="cross" src="/images/cross.png" alt="" width="23px">
+        </div>
+        <div class="contactform">
+            <h2>Contact Us</h2>
+            <form action="https://script.google.com/macros/s/AKfycbxRRv-5qmT608Q99uwrVmhTMz_NUARQ_4VN1FnfDSTGaNufrm8ODiC3OlsHgnmeG-jJ6Q/exec" method="post" name="contactform">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+    
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+    
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+    
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxRRv-5qmT608Q99uwrVmhTMz_NUARQ_4VN1FnfDSTGaNufrm8ODiC3OlsHgnmeG-jJ6Q/exec'
+        const form = document.forms['contactform']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => alert("Thank you! your form is submitted successfully." ))
+            .then(() => {  window.location.reload(); })
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+</body>
+</html>
